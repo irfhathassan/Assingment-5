@@ -73,3 +73,17 @@
     </div>
 
     <script>
+        const API = "https://phi-lab-server.vercel.app/api/v1/lab/issues"
+        let issues = []
+
+        function login() {
+            let u = document.getElementById("username").value
+            let p = document.getElementById("password").value
+            if (u === "admin" && p === "admin123") {
+                document.getElementById("loginPage").classList.add("hidden")
+                document.getElementById("app").classList.remove("hidden")
+                loadIssues("all")
+            } else {
+                alert("Invalid credentials")
+            }
+        }
