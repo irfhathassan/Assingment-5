@@ -135,3 +135,18 @@
             let data = await res.json()
             displayIssues(data.data || data)
         }
+
+        function setActiveTab(type) {
+            document.querySelectorAll(".tab").forEach(t => {
+                t.classList.remove("bg-purple-600", "text-white")
+                t.classList.add("border")
+            })
+            if (type === "all") document.getElementById("tabAll").classList.add("bg-purple-600", "text-white")
+            if (type === "open") document.getElementById("tabOpen").classList.add("bg-purple-600", "text-white")
+            if (type === "closed") document.getElementById("tabClosed").classList.add("bg-purple-600", "text-white")
+        }
+    </script>
+
+</body>
+
+</html>
