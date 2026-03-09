@@ -97,3 +97,19 @@
             displayIssues(type === "all" ? issues : issues.filter(i => i.status === type))
             document.getElementById("spinner").classList.add("hidden")
         }
+
+        function displayIssues(list) {
+            let container = document.getElementById("issuesContainer")
+            container.innerHTML = ""
+            document.getElementById("issueCount").innerText = list.length
+            list.forEach(i => {
+                let border = i.status === "open" ? "border-green-500" : "border-purple-500"
+                container.innerHTML += `
+<div onclick="openModal(${i.id})" class="cursor-pointer bg-white p-4 rounded shadow border-t-4 ${border}">
+<h3 class="font-semibold mb-1">${i.title}</h3>
+<p class="text-sm text-gray-500 mb-2">${i.description}</p>
+<p class="text-xs text-gray-600">#${i.id} by ${i.author}</p>
+<p class="text-xs text-gray-500">${new Date(i.createdAt).toLocaleDateString()}</p>
+</div>`
+            })
+        }
