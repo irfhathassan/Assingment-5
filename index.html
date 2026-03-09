@@ -32,3 +32,11 @@
                 <button onclick="searchIssues()" class="bg-purple-600 text-white px-4 rounded">Search</button>
             </div>
         </nav>
+
+        <div class="max-w-6xl mx-auto p-4">
+
+            <div class="flex gap-2 mb-4">
+                <button onclick="loadIssues('all')" id="tabAll" class="tab bg-purple-600 text-white px-4 py-2 rounded">All</button>
+                <button onclick="loadIssues('open')" id="tabOpen" class="tab border px-4 py-2 rounded">Open</button>
+                <button onclick="loadIssues('closed')" id="tabClosed" class="tab border px-4 py-2 rounded">Closed</button>
+            </div>
