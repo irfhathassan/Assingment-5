@@ -87,3 +87,13 @@
                 alert("Invalid credentials")
             }
         }
+
+        async function loadIssues(type) {
+            setActiveTab(type)
+            document.getElementById("spinner").classList.remove("hidden")
+            let res = await fetch(API)
+            let data = await res.json()
+            issues = data.data || data
+            displayIssues(type === "all" ? issues : issues.filter(i => i.status === type))
+            document.getElementById("spinner").classList.add("hidden")
+        }
