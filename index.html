@@ -113,3 +113,14 @@
 </div>`
             })
         }
+
+        function openModal(id) {
+            let issue = issues.find(i => i.id === id)
+            document.getElementById("modalTitle").innerText = issue.title
+            document.getElementById("modalDesc").innerText = issue.description
+            document.getElementById("modalAuthor").innerText = issue.author
+            document.getElementById("modalPriority").innerText = issue.priority
+            document.getElementById("modalDate").innerText = new Date(issue.createdAt).toLocaleDateString()
+            document.getElementById("modal").classList.remove("hidden")
+            document.getElementById("modal").classList.add("flex")
+        }
